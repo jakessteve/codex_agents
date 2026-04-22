@@ -1,0 +1,42 @@
+# CODEX_AGENTS managed template
+# This managed block is the only authoritative model/profile policy.
+
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+
+[features]
+memories = false
+
+[memories]
+no_memories_if_mcp_or_web_search = true
+
+[profiles.fast]
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+
+[profiles.deep]
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+
+[profiles.review]
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+
+[profiles.batch]
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+
+[agents]
+max_threads = 4
+max_depth = 2
+
+[mcp_servers.codex_knowledge]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Project/codex_agents/runtime/codex_knowledge",
+  "python",
+  "-m",
+  "codex_knowledge.server"
+]
