@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+KEY_FILE="${CONTEXT7_API_KEY_FILE:-$HOME/.config/context7/api-key}"
+
+if [ -n "${CONTEXT7_API_KEY:-}" ]; then
+  exec context7-mcp "$@"
+fi
+
+if [ -s "$KEY_FILE" ]; then
+  export CONTEXT7_API_KEY
+  CONTEXT7_API_KEY="$(tr -d '\r\n' < "$KEY_FILE")"
+fi
+
+exec context7-mcp "$@"

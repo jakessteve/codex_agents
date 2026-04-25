@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CODEX_BIN="${CODEX_BIN:-$HOME/.local/bin/codex}"
+
+if [ ! -x "$CODEX_BIN" ]; then
+  echo "Standalone Codex CLI not found at $CODEX_BIN. Run ./scripts/install-codex-cli.sh first." >&2
+  exit 1
+fi
+
+exec "$CODEX_BIN" --profile deep "$@"

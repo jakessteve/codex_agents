@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+KEY_FILE="${CONTEXT7_API_KEY_FILE:-$HOME/.config/context7/api-key}"
+DASHBOARD_URL="${CONTEXT7_DASHBOARD_URL:-https://context7.com/dashboard}"
+
+mkdir -p "$(dirname "$KEY_FILE")"
+chmod 700 "$(dirname "$KEY_FILE")"
+
+if command -v xdg-open >/dev/null 2>&1; then
+  xdg-open "$DASHBOARD_URL" >/dev/null 2>&1 || true
+fi
+
+printf 'Opened Context7 dashboard: %s\n' "$DASHBOARD_URL"
+printf 'Create an API key there, then paste it here. Input is hidden.\n'
+printf 'Context7 API key: '
+stty -echo
+IFS= read -r key
+stty echo
+printf '\n'
+
+case "$key" in
+  ctx7sk-*)
+    ;;
+  *)
+    printf 'The key should start with ctx7sk-. Nothing was written.\n' >&2
+    exit 1
+    ;;
+esac
+
+umask 077
+printf '%s\n' "$key" > "$KEY_FILE"
+chmod 600 "$KEY_FILE"
+printf 'Context7 API key saved to %s\n' "$KEY_FILE"
+printf 'Run: codex mcp get context7\n'

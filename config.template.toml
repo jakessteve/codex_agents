@@ -1,0 +1,55 @@
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+personality = "pragmatic"
+approval_policy = "on-request"
+
+[features]
+memories = true
+plugins = false
+
+[memories]
+no_memories_if_mcp_or_web_search = true
+
+[profiles.fast]
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+approval_policy = "on-request"
+
+[profiles.deep]
+model = "gpt-5.5"
+model_reasoning_effort = "xhigh"
+approval_policy = "on-request"
+
+[profiles.review]
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+approval_policy = "never"
+
+[profiles.batch]
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+approval_policy = "never"
+
+[profiles.self-heal]
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+approval_policy = "on-request"
+
+[agents]
+max_threads = 4
+max_depth = 2
+
+[mcp_servers.codex_knowledge]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Project/codex_agents/runtime/codex_knowledge",
+  "python",
+  "-m",
+  "codex_knowledge.server",
+]
+
+[mcp_servers.context7]
+command = "context7-mcp-auth"
+startup_timeout_sec = 20
