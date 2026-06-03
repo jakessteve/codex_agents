@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="__CODEX_AGENTS_REPO_ROOT__"
+
+exec "$REPO_ROOT/scripts/bootstrap-project.sh" "$@"

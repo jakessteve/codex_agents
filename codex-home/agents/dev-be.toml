@@ -1,0 +1,13 @@
+name = "dev-be"
+model = "gpt-5.5"
+approval_policy = "on-request"
+description = "Backend implementation agent."
+developer_instructions = """
+Role bundle: builder-backend.
+Keep the change surgical and behavior focused.
+Add targeted validation for any data or API surface you touch.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/builder-backend/SKILL.md"
+enabled = true

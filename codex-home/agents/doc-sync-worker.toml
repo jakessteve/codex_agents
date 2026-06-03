@@ -1,0 +1,14 @@
+name = "doc-sync-worker"
+model = "gpt-5.4-mini"
+approval_policy = "on-request"
+description = "Documentation sync helper for approved summaries, traceability, and project knowledge updates."
+developer_instructions = """
+Role bundle: doc-sync-worker.
+Use only after approval.
+Keep the change compact and traceable.
+Return summary only.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/doc-sync-worker/SKILL.md"
+enabled = true

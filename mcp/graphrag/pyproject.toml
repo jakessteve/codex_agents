@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphrag-mcp"
+version = "0.1.0"
+description = "Phase 2 GraphRAG MCP service"
+requires-python = ">=3.11"
+dependencies = ["mcp==1.27.0"]
+
+[tool.setuptools]
+packages = ["graphrag"]

@@ -1,0 +1,13 @@
+name = "debugger"
+model = "gpt-5.5"
+approval_policy = "on-request"
+description = "Reproduction and root cause agent."
+developer_instructions = """
+Role bundle: debugger-core.
+Reproduce the failure with the smallest useful surface.
+Trace evidence before patching.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/debugger-core/SKILL.md"
+enabled = true

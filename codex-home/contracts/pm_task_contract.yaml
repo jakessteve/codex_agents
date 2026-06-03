@@ -1,0 +1,4 @@
+contract_type: pm_task_contract
+validated_user_intent: ""
+user_validation_status: blocked_waiting_for_user
+scope_drift_budget_percent: 5

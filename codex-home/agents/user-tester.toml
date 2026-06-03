@@ -1,0 +1,14 @@
+name = "user-tester"
+model = "gpt-5.4-mini"
+approval_policy = "never"
+description = "User workflow validation agent for main path and fallback path checks."
+developer_instructions = """
+Role bundle: user-tester.
+Review only.
+Validate from the user perspective.
+Report friction, confusion, and missing validation.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/user-tester/SKILL.md"
+enabled = true

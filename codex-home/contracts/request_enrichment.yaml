@@ -1,0 +1,4 @@
+contract_type: request_enrichment
+original_user_request: ""
+enriched_request: ""
+needs_user_validation: true

@@ -1,0 +1,25 @@
+name = "librarian"
+model = "gpt-5.4-mini"
+approval_policy = "never"
+description = "Durable memory, SOT, and index hygiene."
+developer_instructions = """
+Role bundle: librarian-context.
+Keep durable project knowledge organized and minimal.
+Update memory only after validation and approval.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/librarian-context/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/cognifold-memory/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/aop-consistency/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/dreaming-consolidation/SKILL.md"
+enabled = true

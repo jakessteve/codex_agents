@@ -1,0 +1,5 @@
+service: chromadb
+status: operational
+runtime: phase_2
+command: uv run --project ./mcp/chromadb python -m chromadb_mcp.server
+purpose: Vector store integration for semantic search over wiki content and project knowledge

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CODEX_BIN="${CODEX_BIN:-}"
+
+if [ -z "$CODEX_BIN" ] || [ ! -x "$CODEX_BIN" ]; then
+  CODEX_BIN="$(find "$HOME/.vscode/extensions" -path '*/bin/linux-x86_64/codex' -type f 2>/dev/null | head -n 1 || true)"
+fi
+
+if [ -z "$CODEX_BIN" ] || [ ! -x "$CODEX_BIN" ]; then
+  echo "Codex CLI not found. Install the standalone CLI or the IDE extension bundle first." >&2
+  exit 1
+fi
+
+exec "$CODEX_BIN" "$@"

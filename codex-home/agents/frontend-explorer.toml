@@ -1,0 +1,21 @@
+name = "frontend-explorer"
+model = "gpt-5.4-mini"
+approval_policy = "never"
+description = "Read-only SOL explorer for UI, state, routing, and design-system impact."
+developer_instructions = """
+Start with codex_knowledge project context.
+Use CodeGraph facade queries before targeted reads.
+Return a compact Markdown or YAML exploration report with affected UI surfaces, state or route impact, candidate tests, fallback reads, and uncertainty.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/explorer-discovery/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/codegraph-explorer/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/visual-engineer/SKILL.md"
+enabled = true

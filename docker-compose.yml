@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  # === FalkorDB ===
+  falkordb:
+    image: falkordb/falkordb:latest
+    ports:
+      - "6379:6379"
+      - "3000:3000"
+    volumes:
+      - falkor-data:/data
+
+  # === Arize Phoenix ===
+  phoenix:
+    image: arizephoenix/phoenix:latest
+    ports:
+      - "6006:6006"
+    environment:
+      - PHOENIX_HOST=0.0.0.0
+      - PHOENIX_PORT=6006
+    volumes:
+      - phoenix-data:/root/.phoenix
+
+  # === ChromaDB ===
+  chromadb:
+    image: chromadb/chroma:latest
+    ports:
+      - "8100:8000"
+    environment:
+      - CHROMA_SERVER_HOST=0.0.0.0
+      - CHROMA_SERVER_HTTP_PORT=8000
+    volumes:
+      - chroma-data:/chroma/chroma
+
+volumes:
+  falkor-data:
+  phoenix-data:
+  chroma-data:

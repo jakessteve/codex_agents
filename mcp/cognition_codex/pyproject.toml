@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cognition-codex-mcp"
+version = "0.1.0"
+description = "Codex-native PyRAG, MultiSearch, Cognifold, AOP, and Dreaming MCP service"
+requires-python = ">=3.11"
+dependencies = ["mcp==1.27.0"]
+
+[tool.setuptools]
+packages = ["cognition"]

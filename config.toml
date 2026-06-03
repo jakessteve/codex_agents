@@ -1,4 +1,4 @@
-model = "gpt-5.4-mini"
+model = "gpt-5.5"
 model_reasoning_effort = "high"
 [plugins."github@openai-curated"]
 enabled = false
@@ -6,10 +6,7 @@ enabled = false
 [projects."/"]
 trust_level = "trusted"
 
-[projects."/home/heocop/Project/PopOS"]
-trust_level = "trusted"
-
-[projects."/home/heocop/Project/Codex Agents"]
+[projects."/home/heocop/Projects/codex_agents"]
 trust_level = "trusted"
 
 
@@ -58,18 +55,129 @@ approval_policy = "on-request"
 max_threads = 4
 max_depth = 2
 
+[caching]
+provider = "enabled"
+strategy = "strategic-prefix"
+plan_caching = true
+prefix_file = "codex-home/system_prefix.md"
+
+[caching.semantic]
+enable = true
+similarity_threshold = 0.92
+collection = "semantic_cache"
+ttl_seconds = 3600
+
 [mcp_servers.codex_knowledge]
 command = "uv"
 args = [
   "run",
   "--project",
-  "/home/heocop/Project/codex_agents/runtime/codex_knowledge",
+  "/home/heocop/Projects/codex_agents/runtime/codex_knowledge",
   "python",
   "-m",
   "codex_knowledge.server",
 ]
 
+[mcp_servers.planner]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/planner",
+  "python",
+  "-m",
+  "planner.server",
+]
+
+[mcp_servers.codegraph]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/codegraph",
+  "python",
+  "-m",
+  "codegraph.server",
+]
+
+[mcp_servers.graphrag]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/graphrag",
+  "python",
+  "-m",
+  "graphrag.server",
+]
+
+[mcp_servers.treesitter]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/treesitter",
+  "python",
+  "-m",
+  "treesitter.server",
+]
+
+[mcp_servers.minimalist]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/minimalist",
+  "python",
+  "-m",
+  "minimalist.server",
+]
+
+[mcp_servers.cognition_codex]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/cognition_codex",
+  "python",
+  "-m",
+  "cognition.server",
+]
+
+[mcp_servers.evolution]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/evolution",
+  "python",
+  "-m",
+  "evolution.server",
+]
+
+[mcp_servers.trace_export]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/trace_export",
+  "python",
+  "-m",
+  "trace_export.server",
+]
+
+[mcp_servers.chromadb_mcp]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/chromadb",
+  "python",
+  "-m",
+  "chromadb_mcp.server",
+]
+
 [mcp_servers.context7]
-command = "context7-mcp-auth"
-startup_timeout_sec = 20
+url = "https://mcp.context7.com/mcp"
+startup_timeout_ms = 20000
 # END CODEX_AGENTS_MANAGED

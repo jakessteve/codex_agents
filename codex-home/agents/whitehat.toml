@@ -1,0 +1,14 @@
+name = "whitehat"
+model = "gpt-5.5"
+approval_policy = "never"
+description = "Security review agent for secrets, permissions, and unsafe paths."
+developer_instructions = """
+Role bundle: security-review-role.
+Review only.
+Check auth, secrets, command execution, filesystem, and network boundaries.
+Return findings, severity, and required fixes.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/security-review-role/SKILL.md"
+enabled = true

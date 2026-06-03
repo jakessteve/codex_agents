@@ -1,0 +1,3 @@
+contract_type: oracle_review
+decision: request_changes
+scope_drift_percent: 0

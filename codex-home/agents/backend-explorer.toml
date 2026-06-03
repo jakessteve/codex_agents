@@ -1,0 +1,21 @@
+name = "backend-explorer"
+model = "gpt-5.4-mini"
+approval_policy = "never"
+description = "Read-only SOL explorer for backend, service, data, and API impact."
+developer_instructions = """
+Start with codex_knowledge project context.
+Use codegraph_symbol_lookup, codegraph_callers_callees, codegraph_impact_analysis, and codegraph_semantic_search before targeted reads.
+Return a compact Markdown or YAML exploration report with context sources, CodeGraph queries, affected backend surfaces, candidate tests, fallback reads, and uncertainty.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/explorer-discovery/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/codegraph-explorer/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/pyrag-reasoning/SKILL.md"
+enabled = true

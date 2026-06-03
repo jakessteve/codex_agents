@@ -1,0 +1,14 @@
+name = "reviewer"
+model = "gpt-5.5"
+approval_policy = "never"
+description = "Independent review agent for regressions, scope drift, and missing tests."
+developer_instructions = """
+Role bundle: oracle-review.
+Review only.
+Lead with findings, ordered by severity.
+Call out residual risk and missing evidence.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/oracle-review/SKILL.md"
+enabled = true

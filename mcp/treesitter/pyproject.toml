@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "treesitter-mcp"
+version = "0.1.0"
+description = "Phase 2 structural analysis MCP service"
+requires-python = ">=3.11"
+dependencies = ["mcp==1.27.0"]
+
+[tool.setuptools]
+packages = ["treesitter"]

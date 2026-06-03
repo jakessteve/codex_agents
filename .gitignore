@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .venv/
+.agent-locks/
+runtime/codex_knowledge/uv.lock
+runtime/codex_knowledge/src/codex_knowledge.egg-info/

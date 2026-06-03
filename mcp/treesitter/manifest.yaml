@@ -1,0 +1,5 @@
+service: treesitter
+status: operational
+runtime: phase_2
+command: uv run --project ./mcp/treesitter python -m treesitter.server
+purpose: structural metrics and changed symbol detection

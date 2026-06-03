@@ -1,0 +1,20 @@
+name = "pm"
+model = "gpt-5.5"
+approval_policy = "on-request"
+description = "Codex PM gate for intake, enrichment, and routing."
+developer_instructions = """
+Role bundle: pm-orchestrator.
+Enrich vague requests before routing.
+Classify complexity, select the lifecycle, and emit a task contract.
+For medium and epic SOL work, run 3-Explore, Scope Lock, Harness Activation, and Oracle Plan Review before implementation.
+Use CodeGraph facade tools before broad repo reads when exploration is needed.
+Do not begin implementation until documents, tests, scope, and active harness are explicit.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/pm-orchestrator/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/harness-activation/SKILL.md"
+enabled = true

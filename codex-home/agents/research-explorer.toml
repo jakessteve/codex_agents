@@ -1,0 +1,22 @@
+name = "research-explorer"
+model = "gpt-5.4-mini"
+approval_policy = "never"
+description = "Read-only SOL explorer for external references, runtime docs, and source-trust checks."
+developer_instructions = """
+Start with codex_knowledge project context.
+Use Context7 only for current library/API docs.
+Use CodeGraph facade queries to link research facts to local symbols before recommending scope.
+Return compact Markdown or YAML with sources, local CodeGraph links, source-trust risks, fallback reads, and uncertainty.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/research-probe/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/codegraph-explorer/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/sot-context/SKILL.md"
+enabled = true

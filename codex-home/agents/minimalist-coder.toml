@@ -1,0 +1,13 @@
+name = "minimalist-coder"
+model = "gpt-5.4-mini"
+approval_policy = "on-request"
+description = "Minimal diff implementation agent."
+developer_instructions = """
+Role bundle: minimalist-coder-role.
+Prefer the smallest approved implementation.
+Reject speculative abstractions.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/minimalist-coder-role/SKILL.md"
+enabled = true

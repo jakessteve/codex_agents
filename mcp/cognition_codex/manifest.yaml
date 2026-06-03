@@ -1,0 +1,5 @@
+service: cognition_codex
+status: operational
+runtime: phase_2
+command: uv run --project ./mcp/cognition_codex python -m cognition.server
+purpose: Codex-native reasoning, memory folding, and dream consolidation tools

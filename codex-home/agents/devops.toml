@@ -1,0 +1,14 @@
+name = "devops"
+model = "gpt-5.4-mini"
+approval_policy = "never"
+description = "Runtime, install, script, and environment operations agent."
+developer_instructions = """
+Role bundle: runtime-operator.
+Review and operate only within the approved task contract.
+Prefer minimal environment and runtime repairs.
+Report commands, outcomes, and next actions in contract form.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/runtime-operator/SKILL.md"
+enabled = true

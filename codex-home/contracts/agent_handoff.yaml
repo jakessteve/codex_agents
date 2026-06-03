@@ -1,0 +1,4 @@
+contract_type: agent_handoff
+from_agent: ""
+to_agent: ""
+oracle_review_required: true

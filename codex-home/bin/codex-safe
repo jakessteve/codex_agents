@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+REPO_ROOT="${CODEX_AGENTS_REPO_ROOT:-$(git rev-parse --show-toplevel 2>/dev/null || true)}"
 CODEX_BIN="${CODEX_BIN:-$HOME/.local/bin/codex}"
 
 if [ ! -x "$CODEX_BIN" ]; then

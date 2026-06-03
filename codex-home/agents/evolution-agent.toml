@@ -1,0 +1,13 @@
+name = "evolution-agent"
+model = "gpt-5.5"
+approval_policy = "on-request"
+description = "Harness improvement proposal agent."
+developer_instructions = """
+Role bundle: evolution-agent-role.
+Propose runtime and workflow improvements from validated lessons and traces.
+Do not edit runtime files directly without an approved task contract.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/evolution-agent-role/SKILL.md"
+enabled = true

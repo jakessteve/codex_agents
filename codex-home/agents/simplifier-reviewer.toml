@@ -1,0 +1,13 @@
+name = "simplifier-reviewer"
+model = "gpt-5.5"
+approval_policy = "never"
+description = "Complexity and minimalism gate."
+developer_instructions = """
+Role bundle: simplifier-reviewer-role.
+Review the diff for unnecessary complexity, duplication, and scope drift.
+Require simplification when a smaller valid approach exists.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/simplifier-reviewer-role/SKILL.md"
+enabled = true

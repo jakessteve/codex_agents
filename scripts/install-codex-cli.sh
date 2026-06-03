@@ -31,7 +31,7 @@ fi
 
 ln -sfn "$STANDALONE_CODEX" "$PUBLIC_CODEX"
 
-"$REPO_ROOT/scripts/install-global.sh"
+"$REPO_ROOT/scripts/install-codex-runtime.sh"
 
 AFTER_CODEX="$(command -v codex || true)"
 AFTER_VERSION="$(codex --version 2>/dev/null || true)"

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+resolve_project_vault() {
+  local registry="$HOME/.local/share/codex/projects/registry.sqlite"
+  local cwd="${PWD:-}"
+  local best_project=""
+  local best_vault=""
+
+  if [ -f "$registry" ] && command -v sqlite3 >/dev/null 2>&1; then
+    while IFS='|' read -r project_path vault_path; do
+      if [[ "$cwd" == "$project_path" || "$cwd" == "$project_path"/* ]]; then
+        if [ ${#project_path} -gt ${#best_project} ]; then
+          best_project="$project_path"
+          best_vault="$vault_path"
+        fi
+      fi
+    done < <(sqlite3 "$registry" "select project_path, vault_path from projects;" 2>/dev/null || true)
+  fi
+
+  printf '%s\n' "$best_vault"
+}
+
+VAULT_PATH="${OBSIDIAN_VAULT_PATH:-$(resolve_project_vault)}"
+VAULT_PATH="${VAULT_PATH:-$HOME/Documents/Obsidian/CachyOS}"
+exec flatpak run md.obsidian.Obsidian "$VAULT_PATH" "$@"

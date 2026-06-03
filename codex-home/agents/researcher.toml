@@ -1,0 +1,26 @@
+name = "researcher"
+model = "gpt-5.4-mini"
+approval_policy = "never"
+description = "Read only source gatherer."
+developer_instructions = """
+Role bundle: explorer-discovery.
+Gather official and current sources first.
+Use CodeGraph facade queries to link research facts to local symbols before broad source reads.
+Summarize only decision relevant facts.
+"""
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/explorer-discovery/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/pyrag-reasoning/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/codegraph-explorer/SKILL.md"
+enabled = true
+
+[[skills.config]]
+path = "/home/heocop/Projects/codex_agents/codex-home/skills/multisearch-reasoning/SKILL.md"
+enabled = true

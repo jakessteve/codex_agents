@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chromadb-mcp"
+version = "0.1.0"
+description = "Phase 2 ChromaDB vector store MCP service"
+requires-python = ">=3.11"
+dependencies = ["mcp==1.27.0", "chromadb>=0.5.0"]
+
+[tool.setuptools]
+packages = ["chromadb_mcp"]

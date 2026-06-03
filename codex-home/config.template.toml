@@ -1,11 +1,11 @@
 # CODEX_AGENTS managed template
 # This managed block is the only authoritative model/profile policy.
 
-model = "gpt-5.4"
+model = "gpt-5.5"
 model_reasoning_effort = "xhigh"
 
 [features]
-memories = false
+memories = true
 
 [memories]
 no_memories_if_mcp_or_web_search = true
@@ -15,11 +15,11 @@ model = "gpt-5.4-mini"
 model_reasoning_effort = "medium"
 
 [profiles.deep]
-model = "gpt-5.4"
+model = "gpt-5.5"
 model_reasoning_effort = "xhigh"
 
 [profiles.review]
-model = "gpt-5.4"
+model = "gpt-5.5"
 model_reasoning_effort = "high"
 
 [profiles.batch]
@@ -35,8 +35,111 @@ command = "uv"
 args = [
   "run",
   "--project",
-  "/home/heocop/Project/codex_agents/runtime/codex_knowledge",
+  "/home/heocop/Projects/codex_agents/runtime/codex_knowledge",
   "python",
   "-m",
   "codex_knowledge.server"
 ]
+
+[mcp_servers.planner]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/planner",
+  "python",
+  "-m",
+  "planner.server"
+]
+
+[mcp_servers.codegraph]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/codegraph",
+  "python",
+  "-m",
+  "codegraph.server"
+]
+
+[mcp_servers.graphrag]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/graphrag",
+  "python",
+  "-m",
+  "graphrag.server"
+]
+
+[mcp_servers.treesitter]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/treesitter",
+  "python",
+  "-m",
+  "treesitter.server"
+]
+
+[mcp_servers.minimalist]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/minimalist",
+  "python",
+  "-m",
+  "minimalist.server"
+]
+
+[mcp_servers.cognition_codex]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/cognition_codex",
+  "python",
+  "-m",
+  "cognition.server"
+]
+
+[mcp_servers.evolution]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/evolution",
+  "python",
+  "-m",
+  "evolution.server"
+]
+
+[mcp_servers.trace_export]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/trace_export",
+  "python",
+  "-m",
+  "trace_export.server"
+]
+
+[mcp_servers.chromadb_mcp]
+command = "uv"
+args = [
+  "run",
+  "--project",
+  "/home/heocop/Projects/codex_agents/mcp/chromadb",
+  "python",
+  "-m",
+  "chromadb_mcp.server"
+]
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+startup_timeout_ms = 20000

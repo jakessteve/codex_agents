@@ -1,0 +1,5 @@
+service: graphrag
+status: operational
+runtime: phase_2
+command: uv run --project ./mcp/graphrag python -m graphrag.server
+purpose: graph query service over project facts and FalkorDB
