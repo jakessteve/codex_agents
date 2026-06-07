@@ -84,7 +84,7 @@ Interrupt Gates (can fire at any point):
 **Checks:**
 1. Task contract is complete and valid (`planner_review_task_contract`)
 2. Required context is available (`codex_knowledge_project_context`)
-3. AOP consistency of the planned approach (`cognition_codex_check_aop_consistency`)
+3. AOP consistency of the planned approach (`codex_knowledge_graph_query`)
 4. Context budget is sufficient (`token_health_check`)
 5. Required tools are available and functional (`bash` with tool verification)
 6. No unresolved blockers from previous tasks (`codex_knowledge_settings_review_queue`)
@@ -117,7 +117,7 @@ preflight_gate:
 **Checks:**
 1. Output matches task contract scope (`planner_review_task_contract`)
 2. All claimed functionality has test evidence (`bash` with test runner)
-3. AOP consistency check passes (`cognition_codex_check_aop_consistency`)
+3. AOP consistency check passes (`codex_knowledge_graph_query`)
 4. Minimalism review passes (`minimalist_review_change`)
 5. No unapproved files were modified (`minimalist_diff_budget`)
 
@@ -334,12 +334,12 @@ State: aborting
 |------|---------|----------------|
 | `planner_review_task_contract` | Validate task contract scope | preflight_gate, revision_gate |
 | `codex_knowledge_project_context` | Gather project context | preflight_gate |
-| `cognition_codex_check_aop_consistency` | Check architectural consistency | preflight_gate, revision_gate, oracle_review_gate |
+| `codex_knowledge_graph_query` | Check architectural consistency | preflight_gate, revision_gate, oracle_review_gate |
 | `token_health_check` | Monitor context budget | preflight_gate, abort_gate |
 | `minimalist_diff_budget` | Compare planned vs. actual files | revision_gate, release_gate |
 | `minimalist_review_change` | Score minimalism | revision_gate, oracle_review_gate |
 | `bash` with test runner | Run tests | revision_gate, release_gate |
 | `grep` | Scan for secrets | release_gate |
 | `codex_knowledge_settings_review_queue` | Check for unresolved blockers | preflight_gate |
-| `trace_export_record_trace` | Audit gate transitions | All gates |
+| `codex_knowledge_handoff_checkpoint` | Audit gate transitions | All gates |
 | `codex_knowledge_knowledge_capture` | Persist gate outputs | All gates |

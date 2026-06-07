@@ -1,5 +1,5 @@
-model = "gpt-5.5"
-model_reasoning_effort = "high"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
 [plugins."github@openai-curated"]
 enabled = false
 
@@ -14,8 +14,8 @@ trust_level = "trusted"
 
 
 # BEGIN CODEX_AGENTS_MANAGED
-model = "gpt-5.5"
-model_reasoning_effort = "high"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
 personality = "pragmatic"
 approval_policy = "on-request"
 
@@ -27,8 +27,8 @@ plugins = false
 no_memories_if_mcp_or_web_search = true
 
 [profiles.fast]
-model = "gpt-5.4-mini"
-model_reasoning_effort = "medium"
+model = "gpt-5.4-nano"
+model_reasoning_effort = "low"
 approval_policy = "on-request"
 
 [profiles.deep]
@@ -37,13 +37,13 @@ model_reasoning_effort = "xhigh"
 approval_policy = "on-request"
 
 [profiles.review]
-model = "gpt-5.5"
-model_reasoning_effort = "high"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
 approval_policy = "never"
 
 [profiles.batch]
-model = "gpt-5.4-mini"
-model_reasoning_effort = "medium"
+model = "gpt-5.4-nano"
+model_reasoning_effort = "low"
 approval_policy = "never"
 
 [profiles.self-heal]
@@ -51,8 +51,13 @@ model = "gpt-5.5"
 model_reasoning_effort = "high"
 approval_policy = "on-request"
 
+[profiles.read-only]
+model = "gpt-5.4-nano"
+model_reasoning_effort = "low"
+approval_policy = "never"
+
 [agents]
-max_threads = 4
+max_threads = 2
 max_depth = 2
 
 [caching]
@@ -133,38 +138,38 @@ args = [
   "minimalist.server",
 ]
 
-[mcp_servers.cognition_codex]
-command = "uv"
-args = [
-  "run",
-  "--project",
-  "/home/heocop/Projects/codex_agents/mcp/cognition_codex",
-  "python",
-  "-m",
-  "cognition.server",
-]
+# [mcp_servers.cognition_codex]
+# command = "uv"
+# args = [
+#   "run",
+#   "--project",
+#   "/home/heocop/Projects/codex_agents/mcp/cognition_codex",
+#   "python",
+#   "-m",
+#   "cognition.server",
+# ]
 
-[mcp_servers.evolution]
-command = "uv"
-args = [
-  "run",
-  "--project",
-  "/home/heocop/Projects/codex_agents/mcp/evolution",
-  "python",
-  "-m",
-  "evolution.server",
-]
+# [mcp_servers.evolution]
+# command = "uv"
+# args = [
+#   "run",
+#   "--project",
+#   "/home/heocop/Projects/codex_agents/mcp/evolution",
+#   "python",
+#   "-m",
+#   "evolution.server",
+# ]
 
-[mcp_servers.trace_export]
-command = "uv"
-args = [
-  "run",
-  "--project",
-  "/home/heocop/Projects/codex_agents/mcp/trace_export",
-  "python",
-  "-m",
-  "trace_export.server",
-]
+# [mcp_servers.trace_export]
+# command = "uv"
+# args = [
+#   "run",
+#   "--project",
+#   "/home/heocop/Projects/codex_agents/mcp/trace_export",
+#   "python",
+#   "-m",
+#   "trace_export.server",
+# ]
 
 [mcp_servers.chromadb_mcp]
 command = "uv"

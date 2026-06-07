@@ -52,11 +52,11 @@ Ensure that every action in a task moves the project forward. If progress stalls
 - `treesitter_changed_symbols` — verify symbol changes are intentional
 - `codex_knowledge_handoff_checkpoint` — save state before reframing
 - `planner_review_task_contract` — validate scope hasn't drifted
-- `trace_export_record_trace` — record progress metrics
+- `codex_knowledge_handoff_checkpoint` — record progress metrics
 
 ## Enforcement
 
 - Builder agents report progress after every 5 actions
 - Oracle checks progress metrics during review
 - PM re-evaluates stalled tasks
-- Evolution agent classifies repeated failures via `evolution_classify_repetition`
+- Evolution agent classifies repeated failures via `codex_knowledge_graph_query`

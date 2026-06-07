@@ -20,7 +20,7 @@ Manage token and context window usage across agent interactions to prevent overf
 ## Monitoring
 - Use `token-health-worker` skill to check budget usage
 - Use `codex_knowledge_project_context` for efficient context retrieval (avoids broad scanning)
-- Use `cognition_codex_parallel_multisearch` for multi-perspective queries in a single call
+- Use `codex_knowledge_project_context` for multi-perspective queries in a single call
 
 ## Overflow Protocol
 1. If context exceeds 80% of budget, trigger compaction

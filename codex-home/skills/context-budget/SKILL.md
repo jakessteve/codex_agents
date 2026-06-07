@@ -32,7 +32,7 @@ Manage token and context window usage across agent interactions to prevent overf
 - Use `token-health-worker` skill to check budget usage
 - After every 5 tool calls, estimate remaining budget
 - Use `codex_knowledge_project_context` for efficient retrieval (avoids broad scanning)
-- Use `cognition_codex_parallel_multisearch` for multi-perspective queries
+- Use `codex_knowledge_project_context` for multi-perspective queries
 
 ### 3. Trigger Compaction at 80%
 - When context reaches 80% of budget:

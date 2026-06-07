@@ -30,13 +30,13 @@ Diagnose and fix runtime issues (crashes, errors, misconfigurations) with the sm
 ### 4. Run Doctor and Validation Checks
 - Run the reproduction command to confirm the fix
 - Run the full test suite to check for regressions
-- Run `cognition_codex_check_aop_consistency` for logical consistency
+- Run `codex_knowledge_graph_query` for logical consistency
 - Run LSP diagnostics to check for type errors
 
 ### 5. Record the Fix
 - Use `codex_knowledge_knowledge_capture` to store the fix
-- Use `evolution_record_retrospective` if this is a recurring pattern
-- Use `evolution_classify_repetition` if the same failure has occurred before
+- Use `codex_knowledge_orchestration_lesson` if this is a recurring pattern
+- Use `codex_knowledge_graph_query` if the same failure has occurred before
 
 ## Output Format
 ```yaml

@@ -62,7 +62,7 @@ Reproduce the smallest useful failure surface, trace evidence before patching, a
 ### 5. Validate the Fix
 - Run the reproduction command again to confirm the fix works
 - Run the full test suite to confirm no regressions
-- Use `cognition_codex_check_aop_consistency` to verify no logical contradictions introduced
+- Use `codex_knowledge_graph_query` to verify no logical contradictions introduced
 - Record validation:
   ```yaml
   validation:
@@ -74,6 +74,6 @@ Reproduce the smallest useful failure surface, trace evidence before patching, a
   ```
 
 ### 6. Capture Lesson
-- Use `evolution_record_retrospective` to record the debugging lesson
+- Use `codex_knowledge_orchestration_lesson` to record the debugging lesson
 - Use `codex_knowledge_knowledge_capture` to store the root cause and fix
 - Use `codex_knowledge_graph_upsert` to link the bug to the component

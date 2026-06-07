@@ -10,19 +10,19 @@ Improve the development harness (skills, prompts, guardrails, workflows) based o
 
 ## Prerequisites
 - Lessons must be validated (post-Oracle review)
-- Traces must be recorded (via `trace_export_record_trace`)
+- Traces must be recorded (via `codex_knowledge_handoff_checkpoint`)
 - No unapproved changes to core workflows
 
 ## Steps
 
 ### 1. Gather Validated Lessons and Traces
-- Use `trace_export_summarize_exports` to review recent traces
+- Use `codex_knowledge_memory_query` to review recent traces
 - Use `codex_knowledge_memory_query` to retrieve lessons
-- Use `evolution_classify_repetition` to identify repeated failure patterns
-- Use `cognition_codex_consolidate_dreaming` to consolidate patterns
+- Use `codex_knowledge_graph_query` to identify repeated failure patterns
+- Use `codex_knowledge_orchestration_lesson` to consolidate patterns
 
 ### 2. Write Proposal Manifest
-- Use `evolution_propose_harness_change` to draft a proposal:
+- Use `codex_knowledge_knowledge_capture` to draft a proposal:
   ```yaml
   evolution_proposal:
     trigger: <what triggered this proposal>
@@ -44,7 +44,7 @@ Improve the development harness (skills, prompts, guardrails, workflows) based o
 - Apply only the approved harness change
 - Record the change in `codex_knowledge_knowledge_capture`
 - Update the relevant skill, guardrail, or workflow file
-- Use `evolution_record_retrospective` to record the outcome
+- Use `codex_knowledge_orchestration_lesson` to record the outcome
 
 ### 5. Monitor Results
 - Track KPIs after the change:

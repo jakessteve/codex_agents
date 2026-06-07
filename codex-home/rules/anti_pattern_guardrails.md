@@ -17,7 +17,7 @@ Prevent common anti-patterns that degrade agent performance, waste tokens, and b
    - Never include volatile timestamps or random IDs in the prefix section
    - Always place task-specific content AFTER the stable prefix
 
-5. **No Redundant Retrieval**: Before making a new search query, check the semantic cache (`chromadb_mcp_query_collection` with collection `semantic_cache`). If a similar query was answered before (similarity ≥ 0.92), reuse the cached result.
+5. **No Redundant Retrieval**: Before making a new search query, check the semantic cache (`codex_knowledge_memory_query` with query prefix `semantic_cache:`). If a similar query was answered before (similarity ≥ 0.92), reuse the cached result.
 
 6. **No Unstructured Inter-Agent Communication**: All handoffs must use YAML or Markdown contracts. No free-form prose between agents.
 

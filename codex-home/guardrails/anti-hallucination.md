@@ -44,7 +44,7 @@ Ensure every path, command, file reference, and API output is verified from the 
 - **Knowledge graph**: `codex_knowledge_graph_query` for entity verification
 - **Memory**: `codex_knowledge_memory_query` for past verification records
 - **Context7**: `context7_resolve-library-id` + `context7_query-docs` for library docs
-- **AOP consistency**: `cognition_codex_check_aop_consistency` for logical consistency
+- **AOP consistency**: `codex_knowledge_graph_query` for logical consistency
 
 ## Enforcement
 

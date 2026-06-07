@@ -33,9 +33,7 @@ The managed Codex config wires these services:
 - `graphrag`
 - `treesitter`
 - `minimalist`
-- `cognition_codex`
-- `evolution`
-- `trace_export`
+- `codex_knowledge`
 - `chromadb_mcp`
 - `context7`
 

@@ -15,7 +15,7 @@ Run before starting any implementation. Checks readiness and prevents wasted eff
 - [ ] No stale data (check last update timestamp)
 
 ### 3. AOP Consistency Pre-check
-- [ ] Run `cognition_codex_check_aop_consistency` with:
+- [ ] Run `codex_knowledge_graph_query` with:
   - claims: stated requirements and constraints
   - relations: known dependencies
   - rules: project guardrails

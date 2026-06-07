@@ -20,7 +20,7 @@ Transform vague requests into validated, enriched requests with clear scope befo
 - What is unclear about the request?
 - What decisions need to be made?
 - What scope could change based on different interpretations?
-- Use `cognition_codex_parallel_multisearch` for multi-perspective research
+- Use `codex_knowledge_project_context` for multi-perspective research
 
 ### 3. Ask Focused Questions
 - Ask the user specific questions to resolve ambiguity

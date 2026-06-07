@@ -28,7 +28,7 @@ Load project context efficiently from curated source of truth documents, avoidin
 ### 4. Supplement with Memory and Graph
 - Use `codex_knowledge_memory_query` for past decisions
 - Use `codex_knowledge_graph_query` for entity relationships
-- Use `cognition_codex_parallel_multisearch` for multi-perspective queries
+- Use `codex_knowledge_project_context` for multi-perspective queries
 
 ## Efficiency Rules
 - Always prefer `codex_knowledge_project_context` over reading files

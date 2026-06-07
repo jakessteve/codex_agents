@@ -44,7 +44,7 @@ The pipeline terminates successfully when ALL of the following are true:
 | All acceptance criteria met | `planner_review_task_contract` | 100% coverage |
 | All tests pass | Test runner (`bash`) | 0 failures |
 | Scope drift within budget | `minimalist_diff_budget` | ≤5% |
-| AOP consistency check passes | `cognition_codex_check_aop_consistency` | 0 critical conflicts |
+| AOP consistency check passes | `codex_knowledge_graph_query` | 0 critical conflicts |
 | No secrets in diff | `grep` for secret patterns | 0 findings |
 | LSP diagnostics clean | Language server check | 0 errors in changed files |
 
@@ -53,14 +53,14 @@ The pipeline terminates successfully when ALL of the following are true:
 1. **Final Verification:**
    - Run full test suite: `bash` with `pytest` / `jest` / etc.
    - Run `minimalist_diff_budget` to confirm scope drift ≤5%.
-   - Run `cognition_codex_check_aop_consistency` one final time.
+    - Run `codex_knowledge_graph_query` one final time.
    - Run secret scan: `grep` for `API_KEY`, `SECRET`, `PASSWORD`, `TOKEN`, `BEGIN PRIVATE KEY`.
 
 2. **Knowledge Capture:**
    - Record success in `codex_knowledge_knowledge_capture`:
      - `key`: `termination_success_<task_ref>`
      - `value`: termination YAML (see Output Format)
-   - Record in `trace_export_record_trace`:
+    - Record in `codex_knowledge_handoff_checkpoint`:
      - `trace_class`: "pipeline_termination"
      - `title`: "Sequential pipeline success"
      - `payload`: termination summary
@@ -117,7 +117,7 @@ The pipeline terminates with failure when ANY of the following occur:
 | Condition | Detection Method | Severity |
 |-----------|------------------|----------|
 | Oracle verdict is FAIL | `oracle_review_gate` | Critical |
-| AOP consistency finds critical, unresolvable conflicts | `cognition_codex_check_aop_consistency` | Critical |
+| AOP consistency finds critical, unresolvable conflicts | `codex_knowledge_graph_query` | Critical |
 | Context budget exhausted (>95% used) | `token_health_check` | Critical |
 | User explicitly cancels | User message | Critical |
 | Security vulnerability discovered in merged code | Security review / `grep` | Critical |
@@ -131,7 +131,7 @@ The pipeline terminates with failure when ANY of the following occur:
 
 2. **Preserve Evidence:**
    - Save all intermediate work to `codex_knowledge_handoff_checkpoint`.
-   - Record failure details in `trace_export_record_trace`:
+    - Record failure details in `codex_knowledge_handoff_checkpoint`:
      - `trace_class`: "pipeline_failure"
      - `title`: "Sequential pipeline failure"
      - `payload`: { `reason`, `task_ref`, `evidence` }
@@ -254,10 +254,10 @@ termination:
 | `oracle_review_gate` | Final quality review | Before any termination |
 | `planner_review_task_contract` | Scope and acceptance criteria check | During success and drift termination |
 | `minimalist_diff_budget` | File count drift measurement | During success and drift termination |
-| `cognition_codex_check_aop_consistency` | Architectural consistency | During success and failure termination |
+| `codex_knowledge_graph_query` | Architectural consistency | During success and failure termination |
 | `token_health_check` | Context budget monitoring | During failure termination |
 | `grep` | Secret pattern scanning | During success termination |
 | `codex_knowledge_handoff_checkpoint` | State preservation | During drift, failure, and escalation termination |
-| `trace_export_record_trace` | Audit trail | All termination types |
+| `codex_knowledge_handoff_checkpoint` | Audit trail | All termination types |
 | `codex_knowledge_knowledge_capture` | Termination persistence | All termination types |
 | `question` | User escalation | During escalation termination |

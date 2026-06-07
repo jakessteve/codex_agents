@@ -36,7 +36,7 @@ Diagnose and repair runtime failures (crashes, misconfigurations, dependency iss
 - Run the reproduction command again
 - Run any available health checks
 - Use `codex_knowledge_knowledge_capture` to record the fix
-- Use `evolution_record_retrospective` if this is a recurring issue
+- Use `codex_knowledge_orchestration_lesson` if this is a recurring issue
 
 ## Output Format
 ```yaml

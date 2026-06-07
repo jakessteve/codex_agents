@@ -19,11 +19,11 @@ Maximize provider-side prompt cache hit rates by enforcing stable prefix discipl
      dynamic_content_start: true
    ```
 
-5. **Prefer Indexed Retrieval Over Re-reading**: Use `codex_knowledge_project_context`, `codex_knowledge_memory_query`, `codex_knowledge_graph_query`, and `cognition_codex_parallel_multisearch` instead of re-reading files that were already read in the current session.
+5. **Prefer Indexed Retrieval Over Re-reading**: Use `codex_knowledge_project_context`, `codex_knowledge_memory_query`, `codex_knowledge_graph_query`, and `codex_knowledge_project_context` instead of re-reading files that were already read in the current session.
 
-6. **Semantic Cache Before Broad Search**: Before doing a broad file search or web search, check the semantic cache via `chromadb_mcp_query_collection` with collection `semantic_cache`. If a similar query was answered before (similarity ≥ 0.92), reuse the cached result.
+6. **Semantic Cache Before Broad Search**: Before doing a broad file search or web search, check the semantic cache via `codex_knowledge_memory_query` with query prefix `semantic_cache:`. If a similar query was answered before (similarity ≥ 0.92), reuse the cached result.
 
-7. **Plan Caching**: When composing a PyRAG program via `cognition_codex_compose_pyrag_program`, check if a similar goal has been composed before. Cache composed plans by goal hash in `codex_knowledge_memory_store` with key `pyrag_plan:<goal_hash>`.
+7. **Plan Caching**: When composing a PyRAG program via `codex_knowledge_memory_store`, check if a similar goal has been composed before. Cache composed plans by goal hash in `codex_knowledge_memory_store` with key `pyrag_plan:<goal_hash>`.
 
 8. **Budget Allocation for Cacheable Content**: Of the total context budget:
    - 40% should be cacheable prefix (system rules, tool definitions, project context)
@@ -40,7 +40,7 @@ Maximize provider-side prompt cache hit rates by enforcing stable prefix discipl
    }
    ```
 
-10. **Invalidate on File Change**: When a file is modified, invalidate any semantic cache entries that reference that file. Use `chromadb_mcp_delete_documents` with `where` filter on the `source_file` metadata field.
+10. **Invalidate on File Change**: When a file is modified, invalidate any semantic cache entries that reference that file. Use `codex_knowledge_memory_store` with key `semantic_cache:<file_path>` to update or invalidate the entry.
 
 ## Integration Points
 

@@ -41,7 +41,7 @@ Has the output passed Oracle review (oracle_review_gate)?
 
 **Action on unvalidated work:**
 - Discard the changes.
-- Record the discard in `trace_export_record_trace`:
+- Record the discard in `codex_knowledge_handoff_checkpoint`:
   - `trace_class`: "merge_discard"
   - `title`: "Unvalidated work discarded"
   - `payload`: { `reason`: "unvalidated", `files`: [<list>] }
@@ -154,7 +154,7 @@ pytest --tb=short -q
 - Warnings in untouched files are out of scope.
 
 ### 4.3 AOP Consistency Check
-Invoke `cognition_codex_check_aop_consistency`:
+Invoke `codex_knowledge_graph_query`:
 - `claims`: list of architectural claims introduced by the merge
 - `rules`: project-specific rules from memory or vault
 - If conflicts are found, builder resolves them or escalates.
@@ -174,7 +174,7 @@ Record the merge in `codex_knowledge_knowledge_capture`:
 
 **Tool References:**
 - `bash` with test runner — test execution
-- `cognition_codex_check_aop_consistency` — architectural consistency
+- `codex_knowledge_graph_query` — architectural consistency
 - `minimalist_review_change` — minimalism check
 - `codex_knowledge_knowledge_capture` — merge persistence
 

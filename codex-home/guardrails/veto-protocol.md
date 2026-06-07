@@ -66,7 +66,7 @@ Ensure that vetoes (rejections of proposed changes) are constructive, evidence-b
 
 - `planner_review_task_contract` — validates scope and acceptance criteria
 - `minimalist_review_change` — provides evidence for minimalism vetoes
-- `cognition_codex_check_aop_consistency` — provides evidence for logical consistency vetoes
+- `codex_knowledge_graph_query` — provides evidence for logical consistency vetoes
 - `treesitter_changed_symbols` — provides evidence for scope vetoes
 - `codex_knowledge_knowledge_capture` — records veto resolutions
 

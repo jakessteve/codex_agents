@@ -24,7 +24,7 @@ Classify the request, enrich ambiguity, validate with the user, and produce a ta
 - Identify missing information
 - Ask focused questions when scope can change
 - Use `request_enrichment` workflow for vague requests
-- Use `cognition_codex_parallel_multisearch` for multi-perspective research
+- Use `codex_knowledge_project_context` for multi-perspective research
 
 ### 4. Validate with User
 - Present the enriched request to the user

@@ -30,7 +30,7 @@ Gather information from official and primary sources without mutating project st
 - Compile findings into a compact research contract
 - Cite all sources with tier levels
 - Flag any contradictions between sources
-- Use `cognition_codex_check_aop_consistency` to verify logical consistency
+- Use `codex_knowledge_graph_query` to verify logical consistency
 
 ### 4. Output Research Contract
 ```yaml

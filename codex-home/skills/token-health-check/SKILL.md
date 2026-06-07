@@ -25,7 +25,7 @@ Monitor context window usage and take action before overflow degrades reasoning 
   - `codex_knowledge_project_context` instead of reading entire docs
   - `codex_knowledge_memory_query` instead of re-reading history
   - `codex_knowledge_graph_query` instead of searching all files
-  - `cognition_codex_parallel_multisearch` for multi-perspective queries
+  - `codex_knowledge_project_context` for multi-perspective queries
 
 ### 3. Take Action Based on Load
 

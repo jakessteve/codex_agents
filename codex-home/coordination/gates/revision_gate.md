@@ -36,7 +36,7 @@ Trigger the revision gate after builder completes implementation and BEFORE Orac
 |-----------|------------------|------------------|
 | Implementation doesn't match task contract scope | `planner_review_task_contract` | Major or Critical |
 | Missing test evidence for claimed functionality | `bash` with test runner shows 0 tests for changed file | Minor or Major |
-| AOP consistency check finds conflicts | `cognition_codex_check_aop_consistency` | Major or Critical |
+| AOP consistency check finds conflicts | `codex_knowledge_graph_query` | Major or Critical |
 | Minimalism review flags over-engineering | `minimalist_review_change` | Minor or Major |
 | Unapproved files were modified | `minimalist_diff_budget` shows files outside planned set | Major |
 | Builder did not follow approved approach | Compare output against ensemble decision or task contract | Major or Critical |
@@ -65,7 +65,7 @@ PM compares builder output against the task contract systematically:
    - If a feature has no test, flag as missing evidence.
 
 3. **AOP Consistency:**
-   - Invoke `cognition_codex_check_aop_consistency`:
+    - Invoke `codex_knowledge_graph_query`:
      - `claims`: architectural claims implied by the new code
      - `rules`: existing project rules from memory or vault
    - Record any conflicts.
@@ -268,7 +268,7 @@ revision_gate:
 |------|---------|----------------|
 | `planner_review_task_contract` | Validate scope alignment | Step 1: Scope alignment |
 | `bash` with test runner | Verify test evidence | Step 1: Test evidence |
-| `cognition_codex_check_aop_consistency` | Detect architectural conflicts | Step 1: AOP consistency |
+| `codex_knowledge_graph_query` | Detect architectural conflicts | Step 1: AOP consistency |
 | `minimalist_review_change` | Flag over-engineering | Step 1: Minimalism |
 | `minimalist_diff_budget` | Detect unapproved files | Step 1: File scope |
 | `codex_knowledge_handoff_read` | Load task contract | Step 1: Scope alignment |

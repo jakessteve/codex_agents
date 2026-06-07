@@ -32,7 +32,7 @@ Keep documentation, indexes, and the local Obsidian vault in sync with approved 
 
 ### 5. Capture Lessons
 - Use `codex_knowledge_knowledge_capture` to store what was synced
-- Use `evolution_record_retrospective` if the sync revealed documentation gaps
+- Use `codex_knowledge_orchestration_lesson` if the sync revealed documentation gaps
 
 ## Guardrails
 - Only sync after Oracle approval

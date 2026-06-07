@@ -146,8 +146,8 @@ escalation:
 ```
 
 **Tool References:**
-- `cognition_codex_parallel_multisearch` — generate diverse option perspectives
-- `cognition_codex_check_aop_consistency` — validate options for logical consistency
+- `codex_knowledge_project_context` — generate diverse option perspectives
+- `codex_knowledge_graph_query` — validate options for logical consistency
 - `context7_query-docs` — verify technology claims in options
 
 ---
@@ -213,7 +213,7 @@ Once the user responds (or timeout occurs):
 3. **Resume Execution:**
    - Builder continues implementation based on the user's decision.
    - PM updates the pipeline state to reflect the decision.
-   - Record the decision in `trace_export_record_trace`:
+    - Record the decision in `codex_knowledge_handoff_checkpoint`:
      - `trace_class`: "escalation_resolution"
      - `title`: "Escalation resolved: <decision>"
      - `payload`: { `escalation_id`, `selected_option`, `rationale` }
@@ -244,8 +244,8 @@ Once the user responds (or timeout occurs):
 | `codex_knowledge_project_context` | Gather background on affected components | During context gathering |
 | `codex_knowledge_vault_search` | Check for existing decisions or patterns | During context gathering |
 | `graphrag_query_graph` | Search for related architectural decisions | During context gathering |
-| `cognition_codex_parallel_multisearch` | Generate diverse option perspectives | During option preparation |
-| `cognition_codex_check_aop_consistency` | Validate options for logical consistency | Before presenting to user |
+| `codex_knowledge_project_context` | Generate diverse option perspectives | During option preparation |
+| `codex_knowledge_graph_query` | Validate options for logical consistency | Before presenting to user |
 | `context7_query-docs` | Verify technology claims in options | During option preparation |
 | `planner_review_task_contract` | Re-validate scope if decision changes it | After user response |
-| `trace_export_record_trace` | Audit trail of escalation and resolution | After escalation and after resolution |
+| `codex_knowledge_handoff_checkpoint` | Audit trail of escalation and resolution | After escalation and after resolution |

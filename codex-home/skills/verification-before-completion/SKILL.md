@@ -32,7 +32,7 @@ Use before declaring any implementation done. This is a MANDATORY gate.
 ### Step 5: PyRAG Reasoning Verification (MANDATORY)
 For any non-trivial implementation, compose a PyRAG reasoning program:
 
-1. Call `cognition_codex_compose_pyrag_program` with:
+1. Call `codex_knowledge_memory_store` with:
    - goal: "Verify implementation correctness for [task description]"
    - retrieval_sources: ["codex_knowledge", "graphrag", "memory"]
    - constraints: ["Must pass all tests", "Must not regress existing functionality"]
@@ -47,7 +47,7 @@ For any non-trivial implementation, compose a PyRAG reasoning program:
 3. Record the PyRAG program result in the verification output
 
 ### Step 6: AOP Consistency Check (MANDATORY)
-- Call `cognition_codex_check_aop_consistency` with:
+- Call `codex_knowledge_graph_query` with:
   - claims: list of all claims made in the implementation
   - relations: list of all dependency relationships
   - rules: list of all constraints from the task contract

@@ -41,7 +41,7 @@ Prevent agents from inflating confidence to avoid review. Honest confidence scor
 
 ## Mechanisms
 
-- `cognition_codex_check_aop_consistency` — verify logical consistency of claims
+- `codex_knowledge_graph_query` — verify logical consistency of claims
 - `treesitter_summarize_path` — verify code structure claims
 - `codex_knowledge_graph_query` — verify relationship claims
 - LSP diagnostics — verify type and reference claims

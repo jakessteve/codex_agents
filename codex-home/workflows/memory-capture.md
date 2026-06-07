@@ -36,7 +36,7 @@ Store only validated, durable lessons into project memory — never raw logs or 
 ### 4. Update Memory Store
 - Use `codex_knowledge_memory_store` for key-value lessons
 - Use `codex_knowledge_graph_upsert` for entity relationships
-- Use `cognition_codex_fold_cognifold` for events, concepts, and intents
+- Use `codex_knowledge_handoff_checkpoint` for events, concepts, and intents
 
 ### 5. Update Indexes
 - Use `codex_knowledge_wiki_ingest` if documentation changed

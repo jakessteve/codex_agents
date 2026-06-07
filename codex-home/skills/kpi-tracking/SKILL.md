@@ -15,13 +15,13 @@ Provide a structured way to record, query, and trend system KPIs over time.
 | hallucination_rate | hallucination_auditor findings | % of claims that are contradicted |
 | scope_drift_rate | drift-checker reports | % of tasks that exceed scope budget |
 | minimalism_score | minimalist_review_change | Average diff efficiency (added/removed ratio) |
-| token_efficiency | trace_export summaries | Tokens per completed task |
+| token_efficiency | codex_knowledge summaries | Tokens per completed task |
 | cache_hit_rate | semantic_cache queries | % of queries that hit the semantic cache |
 | graph_first_rate | explore reports | % of exploration tasks that used CodeGraph before fallback reads |
 | grep_fallback_rate | explore reports | % of exploration tasks that required broad or targeted grep fallback |
 | harness_activation_rate | harness activation records | % of medium/epic tasks with activation before implementation |
 | harness_adherence_score | final review | % of active harness checks satisfied |
-| tool_output_tokens | trace_export summaries | Estimated tool-response tokens per task |
+| tool_output_tokens | codex_knowledge summaries | Estimated tool-response tokens per task |
 | output_compression_savings | final response/review summaries | Estimated tokens saved by concise output contracts |
 
 ## Recording KPIs
@@ -50,14 +50,14 @@ When reviewing KPIs:
 1. Retrieve last 7 entries for each KPI
 2. Calculate trend direction (improving, stable, degrading)
 3. Flag any metric that changed >20% in a single step
-4. Correlate changes with evolution_propose_harness_change entries
+4. Correlate changes with codex_knowledge_knowledge_capture entries
 5. Report to meta_evolution agent if degradation detected
 
 ## Integration Points
 - After each hallucination_auditor run → record hallucination_rate
 - After each drift-checker run → record scope_drift_rate
 - After each minimalist_review_change → record minimalism_score
-- After each session → record token_efficiency from trace_export
+- After each session → record token_efficiency from codex_knowledge
 - After each SOL Explore phase → record graph_first_rate and grep_fallback_rate
 - After each Harness Activation gate → record harness_activation_rate
 - After each Final Review gate → record harness_adherence_score

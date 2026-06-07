@@ -43,7 +43,7 @@ Trigger the abort gate when ANY of the following conditions are met:
 | Condition | Detection Method | Severity |
 |-----------|------------------|----------|
 | Context budget exhausted (>95% used) | `token_health_check` skill | Critical |
-| Critical AOP conflict that cannot be resolved | `cognition_codex_check_aop_consistency` returns critical conflicts after 2 resolution attempts | Critical |
+| Critical AOP conflict that cannot be resolved | `codex_knowledge_graph_query` returns critical conflicts after 2 resolution attempts | Critical |
 | Scope drift exceeds budget with no path to recovery | `minimalist_diff_budget` shows >5% drift AND `planner_review_task_contract` cannot absorb the drift | Critical |
 | User explicitly cancels | User message | Critical |
 | Unrecoverable environment error | `bash` command fails with infrastructure error (disk full, network down, missing system dependency) | Critical |
@@ -101,7 +101,7 @@ Before aborting, ALWAYS preserve state:
    - Use `codex_knowledge_knowledge_capture` to save:
      - `key`: `abort_intermediate_<task_ref>`
      - `value`: JSON with all intermediate artifacts (proposals, merge results, test outputs)
-   - Use `trace_export_record_trace` to create an audit trail:
+    - Use `codex_knowledge_handoff_checkpoint` to create an audit trail:
      - `trace_class`: "abort_checkpoint"
      - `title`: "Abort checkpoint for <task_ref>"
      - `payload`: { `checkpoint_ref`, `reason`, `accomplished`, `remaining` }
@@ -136,7 +136,7 @@ Before aborting, ALWAYS preserve state:
    - Use `codex_knowledge_knowledge_capture`:
      - `key`: `abort_reason_<task_ref>`
      - `value`: detailed explanation of why execution was halted
-   - Use `trace_export_record_trace`:
+    - Use `codex_knowledge_handoff_checkpoint`:
      - `trace_class`: "abort"
      - `title`: "Execution aborted: <task_ref>"
      - `payload`: { `reason`, `checkpoint_ref`, `accomplished`, `remaining` }
@@ -223,13 +223,13 @@ The abort gate provides three recovery paths:
 | Tool | Purpose | When to Invoke |
 |------|---------|----------------|
 | `token_health_check` skill | Detect context budget exhaustion | Continuously during execution |
-| `cognition_codex_check_aop_consistency` | Detect critical AOP conflicts | After major architectural changes |
+| `codex_knowledge_graph_query` | Detect critical AOP conflicts | After major architectural changes |
 | `minimalist_diff_budget` | Measure scope drift | Before and after each slice |
 | `planner_review_task_contract` | Validate scope and reframe attempts | Before abort and during reframe |
 | `planner_suggest_topology` | Check if simpler alternative exists | During abort assessment |
 | `codex_knowledge_handoff_checkpoint` | Save state before abort | Mandatory before every abort |
 | `codex_knowledge_handoff_checkpoint_restore` | Resume from checkpoint | During recovery |
 | `codex_knowledge_knowledge_capture` | Persist abort metadata | During abort and recovery |
-| `trace_export_record_trace` | Audit trail | During abort and checkpoint |
+| `codex_knowledge_handoff_checkpoint` | Audit trail | During abort and checkpoint |
 | `grep` | Detect secrets or unauthorized patterns | During security-related aborts |
 | `bash` with `git commit`, `git tag` | Preserve git state | During checkpoint |

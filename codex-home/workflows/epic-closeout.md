@@ -24,7 +24,7 @@ Ensure an epic is fully approved, integrated, and documented before closing.
 
 ### 2. Run Final Validation
 - Run full test suite
-- Run `cognition_codex_check_aop_consistency` for final consistency check
+- Run `codex_knowledge_graph_query` for final consistency check
 - Run `minimalist_review_change` for final minimalism check
 - Record results:
   ```yaml
@@ -44,11 +44,11 @@ Ensure an epic is fully approved, integrated, and documented before closing.
 ### 4. Capture Lessons
 - Use `codex_knowledge_knowledge_capture` for durable lessons
 - Use `codex_knowledge_graph_upsert` for entity updates
-- Use `evolution_record_retrospective` for process lessons
+- Use `codex_knowledge_orchestration_lesson` for process lessons
 - Use `codex_knowledge_memory_store` for KPI measurements
 
 ### 5. Record Trace
-- Use `trace_export_record_trace` for the complete epic trace
+- Use `codex_knowledge_handoff_checkpoint` for the complete epic trace
 - Use `codex_knowledge_handoff_checkpoint` for final state
 
 ### 6. Close Out

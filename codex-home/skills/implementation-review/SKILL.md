@@ -39,7 +39,7 @@ Review the approach quality, technical debt introduced, and residual risk after 
 - What could still go wrong?
 - Are there edge cases not covered by tests?
 - Are there known limitations documented?
-- Use `cognition_codex_check_aop_consistency` for logical gaps
+- Use `codex_knowledge_graph_query` for logical gaps
 
 ### 5. Record Verdict
 ```yaml

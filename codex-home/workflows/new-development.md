@@ -20,7 +20,7 @@ Build new features from scratch with a complete document chain, phase gates, and
 - After PRD: Oracle review for scope and feasibility
 - After architecture: Oracle review for technical decisions
 - After task list: Oracle review for completeness
-- Use `cognition_codex_check_aop_consistency` at each gate
+- Use `codex_knowledge_graph_query` at each gate
 
 ### 3. Define Shared Design Elements (UI Work)
 - For UI work, establish shared design elements FIRST:

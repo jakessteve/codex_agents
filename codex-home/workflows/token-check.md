@@ -26,7 +26,7 @@ Monitor and manage context window usage to prevent overflow and degraded reasoni
   - Use `codex_knowledge_project_context` instead of reading entire docs
   - Use `codex_knowledge_memory_query` instead of re-reading conversation history
   - Use `codex_knowledge_graph_query` instead of searching all files
-  - Use `cognition_codex_parallel_multisearch` for multi-perspective queries
+  - Use `codex_knowledge_project_context` for multi-perspective queries
 
 ### 3. Checkpoint When Pressure Rises
 - At 80% budget: trigger compaction

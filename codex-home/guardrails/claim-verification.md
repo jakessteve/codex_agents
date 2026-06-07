@@ -38,7 +38,7 @@ Prevent cascading errors by requiring that claims from other agents are verified
 - `codex_knowledge_memory_query` — verify past decisions
 - `codex_knowledge_project_context` — verify project structure
 - `treesitter_summarize_path` — verify code structure
-- `cognition_codex_check_aop_consistency` — verify logical consistency
+- `codex_knowledge_graph_query` — verify logical consistency
 - LSP diagnostics — verify type correctness
 
 ## Enforcement

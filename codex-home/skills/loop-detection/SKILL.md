@@ -49,8 +49,8 @@ When a loop is detected, take ONE of these actions in order:
 
 - **doom_loop permission**: Set to `"ask"` in config.toml — prompts user when loop detected
 - **loop_guard plugin**: Counts identical tool calls and warns at 3 repetitions
-- **evolution_classify_repetition**: Post-hoc classification of repeated failure patterns
-- **cognition_codex_consolidate_dreaming**: Detects recurring themes in dreaming cycles
+- **codex_knowledge_graph_query**: Post-hoc classification of repeated failure patterns
+- **codex_knowledge_orchestration_lesson**: Detects recurring themes in dreaming cycles
 
 ## NEVER
 - Never retry the same approach more than 3 times

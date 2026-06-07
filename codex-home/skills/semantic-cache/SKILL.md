@@ -18,35 +18,28 @@ Reduce token usage and latency by caching prompt→response mappings in ChromaDB
 
 ### Store a Cache Entry
 ```
-chromadb_mcp_add_documents(
-  collection_name="semantic_cache",
-  documents=["<prompt or query text>"],
-  ids=["cache_<hash>"],
-  metadatas=[{
-    "response": "<response summary>",
-    "source": "<tool_name>",
-    "timestamp": "<ISO timestamp>",
-    "ttl_seconds": "3600",
-    "goal_hash": "<hash if PyRAG plan>"
-  }]
+codex_knowledge_memory_store(
+  key="semantic_cache:cache_<hash>",
+  value="<prompt or query text>",
+  slug="codex_agents"
 )
 ```
 
 ### Query the Cache
 ```
-chromadb_mcp_query_collection(
-  collection_name="semantic_cache",
-  query_texts=["<current prompt or query>"],
-  n_results=3,
-  where={"source": "<optional_filter>"},
+codex_knowledge_memory_query(
+  query="semantic_cache:<current prompt or query>",
+  slug="codex_agents",
+  limit=3
 )
 ```
 
 ### Invalidate Cache Entries
 ```
-chromadb_mcp_delete_documents(
-  collection_name="semantic_cache",
-  where={"source_file": "<modified_file_path>"}
+codex_knowledge_memory_store(
+  key="semantic_cache:<modified_file_path>",
+  value="invalidated",
+  slug="codex_agents"
 )
 ```
 

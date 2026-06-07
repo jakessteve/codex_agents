@@ -19,7 +19,7 @@ Prevent the agent from exceeding its context window budget, which causes degrade
    - Use `codex_knowledge_project_context` instead of reading entire docs
    - Use `codex_knowledge_memory_query` instead of re-reading conversation history
    - Use `codex_knowledge_graph_query` instead of searching all files
-   - Use `cognition_codex_parallel_multisearch` for multi-perspective queries
+    - Use `codex_knowledge_project_context` for multi-perspective queries
 
 3. **80% Compaction Trigger**: When context reaches 80% of allocated budget:
    - Call `codex_knowledge_handoff_checkpoint` to save state

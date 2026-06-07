@@ -32,7 +32,7 @@ The Oracle is the independent review gate. Every major phase must pass Oracle re
 - [ ] SOT (vault/wiki) updated if architectural change
 
 ### 6. AOP Consistency Gate (MANDATORY)
-- [ ] Run `cognition_codex_check_aop_consistency` with all claims from the implementation
+- [ ] Run `codex_knowledge_graph_query` with all claims from the implementation
 - [ ] Verify no logical contradictions in:
   - Design claims vs. implementation reality
   - Stated constraints vs. actual behavior

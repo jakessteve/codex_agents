@@ -12,7 +12,7 @@
 - **Platform**: `loop-detection guardrails` in config.toml prompts user on detected loops
 - **Plugin**: `loop_guard.ts` counts identical tool calls and warns at 3 repetitions
 - **Skill**: `loop-detection` skill provides explicit rules for agents
-- **Post-hoc**: `evolution_classify_repetition` classifies repeated failures after the fact
+- **Post-hoc**: `codex_knowledge_graph_query` classifies repeated failures after the fact
 
 ## Breaking a Loop
 

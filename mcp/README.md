@@ -2,7 +2,7 @@
 
 status: operational
 owner: pm
-summary: Codex MCP service roots for planner, CodeGraph facade, graph, treesitter, minimalist, cognition_codex, evolution, ChromaDB, and trace export services.
+summary: Codex MCP service roots for planner, CodeGraph facade, graph, treesitter, minimalist, codex_knowledge, ChromaDB, and trace export services.
 
 ## CodeGraph Facade
 

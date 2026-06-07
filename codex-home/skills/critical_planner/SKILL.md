@@ -20,7 +20,7 @@ Before any plan is accepted, challenge:
 When composing verification programs, use a strict structured format:
 - **Context Retrieval**: Define exactly what files or symbols must be queried.
 - **Validation Logic**: Specify the assertion criteria (e.g., test cases, error formats, or state variables to check).
-- **Execution Engine**: Use `cognition_codex_compose_pyrag_program` to invoke deterministic checks.
+- **Execution Engine**: Use `codex_knowledge_memory_store` to invoke deterministic checks.
 
 ### 3. Verification Step Design
 Every step in a plan must be accompanied by a concrete verification action:

@@ -44,7 +44,7 @@ Safely modify existing code by understanding impact, confirming scope, and valid
 - Run `project-regression run` as the default regression entrypoint when available
 - Run existing tests to confirm no regressions
 - Run new tests for the changed behavior
-- Use `cognition_codex_check_aop_consistency` for logical consistency
+- Use `codex_knowledge_graph_query` for logical consistency
 - Use `verification_before_completion` skill for full verification
 
 ### 6. Oracle Review

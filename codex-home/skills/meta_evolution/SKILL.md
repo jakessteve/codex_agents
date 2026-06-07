@@ -12,7 +12,7 @@ Oversee the processes by which the agent system adapts, learns from retrospectiv
 Ensure evolution tracks and optimizes the following metrics:
 - **Harness Stability**: Zero runtime compilation failures after updates.
 - **Cache Efficiency**: Maximize `cache_hit_rate` and `plan_cache_hit_rate` to minimize cost and latency.
-- **Repetition Rate**: Analyze loop logs via `evolution_classify_repetition` to eliminate redundant steps.
+- **Repetition Rate**: Analyze loop logs via `codex_knowledge_graph_query` to eliminate redundant steps.
 
 ## Operational Protocol
 - **Analyze Retrospectives**: Inspect learning records and retrospectives to identify structural gaps.

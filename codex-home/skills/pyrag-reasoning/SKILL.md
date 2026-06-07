@@ -16,7 +16,7 @@ Compose deterministic, verifiable reasoning programs using the PyRAG pattern. In
    ```
    If a cached plan matches the goal (semantic similarity ≥ 0.85), reuse it with modifications.
 
-2. **Compose the Program**: Call `cognition_codex_compose_pyrag_program` with the goal, retrieval sources, and constraints.
+2. **Compose the Program**: Call `codex_knowledge_memory_store` with the goal, retrieval sources, and constraints.
 
 3. **Cache the Plan**: Store the composed plan for future reuse:
    ```
@@ -28,12 +28,11 @@ Compose deterministic, verifiable reasoning programs using the PyRAG pattern. In
    ```
    Also store in semantic cache:
    ```
-   chromadb_mcp_add_documents(
-     collection_name="semantic_cache",
-     documents=["<goal text>"],
-     ids=["pyrag_<goal_hash>"],
-     metadatas=[{"type": "pyrag_plan", "goal_hash": "<hash>"}]
-   )
+    codex_knowledge_memory_store(
+      key="semantic_cache:pyrag_<goal_hash>",
+      value="<goal text>",
+      slug="codex_agents"
+    )
    ```
 
 4. **Execute and Validate**: Execute each step with evidence retrieval. Use the repair loop for failed steps.

@@ -77,13 +77,13 @@ Did ALL checks pass?
    - Warnings in changed files SHOULD be resolved or documented.
 
 3. **Run AOP Consistency Check:**
-   - Invoke `cognition_codex_check_aop_consistency`:
+    - Invoke `codex_knowledge_graph_query`:
      - `claims`: list of architectural claims from the diff
      - `rules`: project-specific rules from memory or vault
    - Result MUST be pass (0 critical conflicts).
 
 4. **Run PyRAG Verification (for non-trivial changes):**
-   - If the change is >200 lines or touches >3 domains, invoke `cognition_codex_compose_pyrag_program`:
+    - If the change is >200 lines or touches >3 domains, invoke `codex_knowledge_memory_store`:
      - `goal`: verify the change meets its stated goal
      - `constraints`: ["must not break existing tests", "must follow project patterns"]
    - Execute the composed program and verify results.
@@ -189,7 +189,7 @@ Did ALL checks pass?
 **Actions:**
 1. Load Oracle review artifact:
    - `codex_knowledge_knowledge_capture` with key `oracle_review_<task_ref>`.
-   - Or `trace_export_record_trace` with `trace_class`: "oracle_review".
+    - Or `codex_knowledge_handoff_checkpoint` with `trace_class`: "oracle_review".
 
 2. Verify verdict:
    - Verdict MUST be `PASS` or `CONDITIONAL`.
@@ -216,7 +216,7 @@ Did ALL checks pass?
 
 | Verdict | Condition | Next Action |
 |---------|-----------|-------------|
-| **SHIP** | All checks pass, Oracle approved, no secrets, no blockers | Ship the diff. Record in `trace_export_record_trace`. Update project index. |
+| **SHIP** | All checks pass, Oracle approved, no secrets, no blockers | Ship the diff. Record in `codex_knowledge_handoff_checkpoint`. Update project index. |
 | **HOLD** | Minor issues found (e.g., unpinned dependency, LSP warning in changed file) | Fix issues. Re-run release gate. Max 2 hold cycles before escalating. |
 | **BLOCK** | Critical issues found (secrets, vulnerabilities, Oracle FAIL, unapproved files) | Do NOT ship. Fix issues or invoke `gates/abort_gate.md`. Record blockers. |
 
@@ -290,7 +290,7 @@ release_gate:
 
 **Persistence:**
 - Save release gate artifact to `codex_knowledge_knowledge_capture` with key `release_gate_<task_ref>`.
-- If `verdict: SHIP`, also record in `trace_export_record_trace`:
+- If `verdict: SHIP`, also record in `codex_knowledge_handoff_checkpoint`:
   - `trace_class`: "release"
   - `title`: "Task shipped: <task_ref>"
   - `payload`: { `release_id`, `task_ref`, `verdict` }
@@ -306,10 +306,10 @@ release_gate:
 | `minimalist_review_change` | Score minimalism | Diff matches contract |
 | `bash` with `git diff --name-only`, `git diff --stat` | Generate diff statistics | Diff matches contract |
 | `bash` with test runner | Run full test suite | Validation |
-| `cognition_codex_check_aop_consistency` | Architectural consistency | Validation |
-| `cognition_codex_compose_pyrag_program` | Non-trivial change verification | Validation |
+| `codex_knowledge_graph_query` | Architectural consistency | Validation |
+| `codex_knowledge_memory_store` | Non-trivial change verification | Validation |
 | `grep` | Secret pattern scanning | No secrets |
 | `bash` with `safety check` / `npm audit` | Dependency vulnerability scan | No dependency surprises |
 | `codex_knowledge_knowledge_capture` | Load Oracle review | Oracle ran |
 | `codex_knowledge_settings_review_queue` | Check unresolved conditions | Oracle ran |
-| `trace_export_record_trace` | Audit trail | All verdicts |
+| `codex_knowledge_handoff_checkpoint` | Audit trail | All verdicts |
